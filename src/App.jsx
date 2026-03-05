@@ -1,16 +1,23 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import ProtectedRoutes from './routes/ProtectedRoutes';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import { Navigate } from 'react-router-dom';
-function App() {
+import './styles/style.css';
 
-const [user, setUser] = useState(() => {
+function App() {
+const [user, setUser] = useState(null);
+  useEffect(() => {
     const savedUser = localStorage.getItem("user");
-    return savedUser ? JSON.parse(savedUser) : null;
-  });  const isAllowed = !!user;
+
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
+
+  const isAllowed = !!user;
 
   return ( 
     <Routes>
@@ -30,8 +37,8 @@ const [user, setUser] = useState(() => {
         element={<Navigate to="/login" replace />}
       />
       <Route element={<ProtectedRoutes isAllowed={isAllowed} />}>
-        <Route path='/dashboard' element={<Dashboard user={user} setUser={setUser}replace />} />
-        <Route path='/profile' element={<Profile user={user} setUser={setUser} replace />} />
+        <Route path="/dashboard" element={<Dashboard user={user} setUser={setUser} />} />
+<Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
       </Route>
     </Routes>
   )

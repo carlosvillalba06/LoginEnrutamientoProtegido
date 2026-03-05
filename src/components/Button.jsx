@@ -1,9 +1,12 @@
 const stylesButtonPrimary = {
-    backgroundColor: '#04040c',
-    borderRadius: '10px',
+backgroundColor: '#0f172a',
     color: '#ffffff',
+    borderRadius: '5px',
     border: 'none',
-    padding: '2px 10px'
+    padding: '10px 20px',
+    fontSize: '16px',
+    fontWeight: '600',
+    cursor: 'pointer',
 };
 
 

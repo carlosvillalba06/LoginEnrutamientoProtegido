@@ -22,19 +22,26 @@ function Profile({ user, setUser }) {
     }
 
     return (
-        <>
-            <h2>Bienvenido a tu perfil</h2>
-            <p>Nombre : {user.nombreCompleto}</p>
-            <p>Rol : {user.rol}</p>
+        <div className="contenedor">
 
-            {user.rol === 'admin' && ( 
-                <Button text="Dashboard" action={irDashboard} />
+            <div className="menu">
+                <Button text="Perfil" action={() => navigate('/profile')} />
 
-            )}
+                {user.rol === 'admin' && (
+                    <Button text="Dashboard" action={irDashboard} />
+                )}
 
-            <Button text="Cerrar sesion" action={handleLogout} />
+                <Button text="Cerrar sesión" action={handleLogout} />
+            </div>
 
-        </>
+            <h1>Perfil</h1>
+
+            <div className="perfil">
+                <p><strong>Nombre:</strong> {user.nombreCompleto}</p>
+                <p><strong>Rol:</strong> {user.rol}</p>
+            </div>
+
+        </div>
     );
 }
 

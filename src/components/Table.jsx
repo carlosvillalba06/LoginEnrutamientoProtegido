@@ -10,7 +10,7 @@ function Table({ users }) {
             </thead>
             <tbody>
                 {users.map((u,item) => (
-                    <tr key={item}>
+                    <tr key={u.user}>
                         <td>{u.user}</td>
                         <td>{u.nombreCompleto}</td>
                         <td>{u.rol}</td>
