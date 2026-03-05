@@ -24,7 +24,9 @@ function Dashboard({ user, setUser }) {
 
             <div className="menu">
                 <Button text="Ir a perfil" action={goToProfile} />
-                <Button text="Cerrar sesión" action={handleLogout} />
+                <div className="cerrar-sesion">
+                    <Button text="Cerrar sesión" action={handleLogout} />
+                </div>
             </div>
             <h1>Dashboard</h1>
             <h3>Administrador: {user.nombreCompleto}</h3>

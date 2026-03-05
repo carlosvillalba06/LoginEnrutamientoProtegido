@@ -25,13 +25,15 @@ function Profile({ user, setUser }) {
         <div className="contenedor">
 
             <div className="menu">
-                <Button text="Perfil" action={() => navigate('/profile')} />
-
                 {user.rol === 'admin' && (
                     <Button text="Dashboard" action={irDashboard} />
                 )}
+                <div className="cerrar-sesion">
+                    <Button text="Cerrar sesión" action={handleLogout} />
 
-                <Button text="Cerrar sesión" action={handleLogout} />
+                </div>
+
+                
             </div>
 
             <h1>Perfil</h1>
